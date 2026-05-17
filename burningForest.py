@@ -2,15 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors
 import random
+from forestGeneration import create_forest
 
 THUNDER_STRIKE_PROBABILITY = 0.1
 TIME_TO_BURN = 0
 PROBABILITY_OF_IGNITE = 0.1
-
-def create_forest(width, height, burnedAreaCoverage):
-    forestMap = [[0] * width for _ in range(height)]
-    return forestMap
-
 
 def map_visualisation(forest_map):
     forest_cmap = matplotlib.colors.LinearSegmentedColormap.from_list(
@@ -50,8 +46,8 @@ def spread_fire(forest_map):
 
 
 
-def simulate(width, height):
-    forest = create_forest(width, height, 50)
+def simulate(width, height, forestCoverage):
+    forest = create_forest(width, height, forestCoverage)
     plt.ion()
     fig, ax = plt.subplots()
     img = map_visualisation(forest)
@@ -63,5 +59,5 @@ def simulate(width, height):
         plt.pause(0.1)
 
 if __name__ == "__main__":
-    simulate(100, 100)
+    simulate(100, 100, 0.8)
     
