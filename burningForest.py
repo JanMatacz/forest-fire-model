@@ -8,7 +8,7 @@ TIME_TO_BURN = 0
 PROBABILITY_OF_IGNITE = 0.1
 
 def create_forest(width, height, burnedAreaCoverage):
-    forestMap = [[2] * width for _ in range(height)]
+    forestMap = [[0] * width for _ in range(height)]
     return forestMap
 
 
