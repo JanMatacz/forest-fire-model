@@ -2,16 +2,17 @@ import random
 import matplotlib.pyplot as plt
 import matplotlib.colors
 
-FOREST_PROBABILITY = 0.1
+FOREST_PROBABILITY = 0.2
 
 
 def create_forest(width, height, forestCoverage):
     forestMap = [[2] * width for _ in range(height)]
 
     while True:
-        forest_strike(forestMap, 0.5)
+        forest_strike(forestMap, 1)
         spread_forest(forestMap)
         coveredArea = sum(cell == 0 for row in forestMap for cell in row)
+        print("Covered Area:", coveredArea/(width * height))
         if forestCoverage <= coveredArea / (width * height):
             break
 
